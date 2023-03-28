@@ -39,7 +39,7 @@ def trendAnalysis(data,number):
     
 
 #define KPSS (Kwiatkowski-Phillips-Schmidt-Shin) Test
-def kpss_test(timeseries):
+def kpssTest(timeseries):
     print ('Results of KPSS Test:')
     kpsstest = kpss(timeseries, regression='c')
     kpss_output = pd.Series(kpsstest[0:3], index=['Test Statistic','p-value','Lags Used'])
@@ -49,7 +49,7 @@ def kpss_test(timeseries):
 
 #define function for ADF (Augmented Dickey Fuller) test
 
-def adf_test(timeseries):
+def adfTest(timeseries):
     #Perform Dickey-Fuller test:
     print ('Results of Dickey-Fuller Test:')
     dftest = adfuller(timeseries, autolag='AIC')
@@ -155,11 +155,11 @@ trendAnalysis(data1,0)
 trendAnalysis(data2,1)
 
 #apply ADF (Augmented Dickey Fuller) Test on the series
-adf_test(data1['Arctic'])
+adfTest(data1['Arctic'])
 
 print('############################################################')
 #apply  KPSS (Kwiatkowski-Phillips-Schmidt-Shin) Test test on the series
-kpss_test(data1['Arctic'])
+kpssTest(data1['Arctic'])
 
 #optimal parameter estimation for SARIMAX using both dataframe 
 print('############################################################')
